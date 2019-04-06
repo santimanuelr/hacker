@@ -26,6 +26,7 @@
 
   color: $plaintext;
 
+  code {display: block;width: 290px;white-space: normal;}
   table td { padding: 5px; }
   table pre { margin: 0; }
   .w {
