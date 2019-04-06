@@ -15,14 +15,14 @@
       <div class="container">
         <h1>{{ site.title | default: site.github.repository_name }}</h1>
         <h2>{{ site.description | default: site.github.project_tagline }}</h2>
-
+        <section><address><a href="{{ site.mail }}">santimanuelr@gmail.com</a></address></section>
         <section id="downloads">
           {% if site.show_downloads %}
             <a href="{{ site.github.zip_url }}" class="btn">Download as .zip</a>
             <a href="{{ site.github.tar_url }}" class="btn">Download as .tar.gz</a>
           {% endif %}
-          <a href="{{ site.url_linkedin }}" class="btn btn-linkedin"><span class="icon"></span>Linkedin Profile</a>
-        </section>
+          <a href="{{ site.url_linkedin }}" target="_blank" class="btn btn-linkedin"><span class="icon"></span>Linkedin Profile</a>
+        </section>   
       </div>
     </header>
 
@@ -44,17 +44,10 @@
                     <span class="p" style="display:block;">}</span>
                     </code>
                   </pre></div></div>
-                  <!-- <div class="big_element"></div>
-                  <div class="left_column"></div>
-                  <div class="right_column_top"></div>
-                  <div class="right_column_bottom"></div>
-                  <div class="status_bar"></div>
-                  <div class="controls"></div> -->
               </div>
               <div class="camera"></div>
               <div class="top_speaker"></div>
               <div class="bottom_speaker"></div>
-          
           </div>
         {{ content }}
       </section>
