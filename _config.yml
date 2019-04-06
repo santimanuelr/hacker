@@ -1,3 +1,5 @@
+baseurl: "/hacker"
+url: "https://santimanuelr.github.io"
 title: Santi Rodríguez
 description: Fullstack developer.
 show_downloads: false
