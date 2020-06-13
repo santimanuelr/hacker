@@ -6,6 +6,13 @@ $body-foreground: $gallery !default;
 $header: $conifer !default;
 $blockquote-color: $silver-chalice !default;
 $blockquote-border: $dove-grey !default;
+$container-max-width: 1000px;
+
+@mixin media-max-width($max-width) {
+  @media (max-width: $max-width) {
+    @content;
+  }
+}
 
 body {
   margin: 0;
@@ -14,14 +21,15 @@ body {
   color: $body-foreground;
   font-size: 16px;
   line-height: 1.5;
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal,
+    monospace;
 }
 
 /* General & 'Reset' Stuff */
 
 .container {
   width: 90%;
-  max-width: 1000px;
+  max-width: $container-max-width;
   margin: 0 auto;
 }
 
@@ -30,12 +38,17 @@ section {
   margin: 0 0 20px 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0 0 20px;
 }
 
 li {
-  line-height: 1.4 ;
+  line-height: 1.4;
 }
 
 /* Header, <header>
@@ -57,13 +70,16 @@ header h1 {
   line-height: 1.5;
   margin: 0px;
   font-weight: bold;
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  color: $conifer;//$header;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
-               0 0 5px rgba(181, 232, 83, 0.1),
-               0 0 10px rgba(181, 232, 83, 0.1);
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal,
+    monospace;
+  color: $conifer; //$header;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(181, 232, 83, 0.1),
+    0 0 10px rgba(181, 232, 83, 0.1);
   letter-spacing: -1px;
   -webkit-font-smoothing: antialiased;
+  @include media-max-width($container-max-width) {
+    margin-left: 0;
+  }
 }
 
 header h1:before {
@@ -91,17 +107,22 @@ header h2 {
   -webkit-font-smoothing: antialiased;
 }
 section img {
-  max-width: 100%
+  max-width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: normal;
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal,
+    monospace;
   color: $header;
   letter-spacing: -0.03em;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
-               0 0 5px rgba(181, 232, 83, 0.1),
-               0 0 10px rgba(181, 232, 83, 0.1);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(181, 232, 83, 0.1),
+    0 0 10px rgba(181, 232, 83, 0.1);
 }
 
 #main_content h1 {
@@ -139,7 +160,7 @@ dt {
 }
 
 ul li {
-  list-style-image:url('../images/bullet.png');
+  list-style-image: url("../images/bullet.png");
 }
 
 blockquote {
@@ -161,7 +182,7 @@ pre {
 }
 
 code.highlighter-rouge {
-  background: rgba(0,0,0,0.9);
+  background: rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 0px 3px;
   margin: 0px -3px;
@@ -196,7 +217,13 @@ hr {
 
 .btn {
   display: inline-block;
-  background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));
+  background: -webkit-linear-gradient(
+    top,
+    rgba(40, 40, 40, 0.3),
+    rgba(35, 35, 35, 0.3) 50%,
+    rgba(10, 10, 10, 0.3) 50%,
+    rgba(0, 0, 0, 0.3)
+  );
   padding: 8px 18px;
   border-radius: 50px;
   border: 2px solid rgba(0, 0, 0, 0.7);
@@ -212,7 +239,13 @@ hr {
 }
 
 .btn:hover {
-  background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));
+  background: -webkit-linear-gradient(
+    top,
+    rgba(40, 40, 40, 0.6),
+    rgba(35, 35, 35, 0.6) 50%,
+    rgba(10, 10, 10, 0.8) 50%,
+    rgba(0, 0, 0, 0.8)
+  );
 }
 
 .btn .icon {
@@ -244,17 +277,18 @@ a {
 
 /* Clearfix */
 
-.cf:before, .cf:after {
-  content:"";
-  display:table;
+.cf:before,
+.cf:after {
+  content: "";
+  display: table;
 }
 
 .cf:after {
-  clear:both;
+  clear: both;
 }
 
 .cf {
-  zoom:1;
+  zoom: 1;
 }
 
 div.presentation {
@@ -277,106 +311,110 @@ div.presentation {
   background-color: #282828;
   border-radius: 55px;
   .lock {
-      top: 200px;
-      margin-left: 332px;
-      position: absolute;
-      height: 40px;
-      width: 5px;
-      background-color: #282828;
-      border-radius: 5px;
+    top: 200px;
+    margin-left: 332px;
+    position: absolute;
+    height: 40px;
+    width: 5px;
+    background-color: #282828;
+    border-radius: 5px;
   }
   .volume {
-      top: 256px;
-      margin-left: 332px;
-      position: absolute;
-      height: 70px;
-      width: 5px;
-      background-color: #282828;
-      border-radius: 5px;
+    top: 256px;
+    margin-left: 332px;
+    position: absolute;
+    height: 70px;
+    width: 5px;
+    background-color: #282828;
+    border-radius: 5px;
   }
   .top_speaker {
-      bottom: 525px;
-      position: relative;
-      margin: 0 auto;
-      width: 90px;
-      height: 10px;
-      background-color: #212121;
-      border-radius: 10px;
-      box-shadow: 0 1px 0px 0 #727272;
+    bottom: 525px;
+    position: relative;
+    margin: 0 auto;
+    width: 90px;
+    height: 10px;
+    background-color: #212121;
+    border-radius: 10px;
+    box-shadow: 0 1px 0px 0 #727272;
   }
   .bottom_speaker {
-      bottom: -60px;
-      position: relative;
-      margin: 0 auto;
-      width: 90px;
-      height: 10px;
-      background-color: #212121;
-      border-radius: 10px;
-      box-shadow: 0 1px 0px 0 #727272;
+    bottom: -60px;
+    position: relative;
+    margin: 0 auto;
+    width: 90px;
+    height: 10px;
+    background-color: #212121;
+    border-radius: 10px;
+    box-shadow: 0 1px 0px 0 #727272;
   }
   .camera {
-      top: 17px;
-      margin-left: 240px;
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      background-color: #212121;
-      border-radius: 10px;
-      box-shadow: 0 1px 0px 0 #727272
+    top: 17px;
+    margin-left: 240px;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #212121;
+    border-radius: 10px;
+    box-shadow: 0 1px 0px 0 #727272;
   }
   /**************** SCREEN OF PHONE ****************/
-  
+
   .screen {
-      top: 59px;
-      width: 300px;
-      height: 540px;
-      position: relative;
-      margin: 0 auto;
-      background-color: #e5e5e5;
-      .status_bar {
-          position: absolute;
-          width: inherit;
-          height: 20px;
-          background-color: black;
-      }
-      .controls {
-          bottom: 0;
-          position: absolute;
-          width: inherit;
-          height: 35px;
-          background-color: black;
-      }
-      .big_element {
-          top: 40px;
-          left: 15px;
-          position: absolute;
-          width: 270px;
-          height: 120px;
-          background-color: #82bcf7;
-      }
-      .left_column {
-          position: absolute;
-          margin-top: 180px;
-          left: 15px;
-          width: 150px;
-          height: 310px;
-          background-color: #ed7c7c;
-      }
-      .right_column_top {
-          position: absolute;
-          margin-top: 180px;
-          margin-left: 185px;
-          height: 110px;
-          width: 100px;
-          background-color: #f0f390;
-      }
-      .right_column_bottom {
-          position: absolute;
-          top: 310px;
-          margin-left: 185px;
-          height: 180px;
-          width: 100px;
-          background-color: #45d35c;
-      }
+    top: 59px;
+    width: 300px;
+    height: 540px;
+    position: relative;
+    margin: 0 auto;
+    background-color: #e5e5e5;
+    .status_bar {
+      position: absolute;
+      width: inherit;
+      height: 20px;
+      background-color: black;
+    }
+    .controls {
+      bottom: 0;
+      position: absolute;
+      width: inherit;
+      height: 35px;
+      background-color: black;
+    }
+    .big_element {
+      top: 40px;
+      left: 15px;
+      position: absolute;
+      width: 270px;
+      height: 120px;
+      background-color: #82bcf7;
+    }
+    .left_column {
+      position: absolute;
+      margin-top: 180px;
+      left: 15px;
+      width: 150px;
+      height: 310px;
+      background-color: #ed7c7c;
+    }
+    .right_column_top {
+      position: absolute;
+      margin-top: 180px;
+      margin-left: 185px;
+      height: 110px;
+      width: 100px;
+      background-color: #f0f390;
+    }
+    .right_column_bottom {
+      position: absolute;
+      top: 310px;
+      margin-left: 185px;
+      height: 180px;
+      width: 100px;
+      background-color: #45d35c;
+    }
   }
+}
+
+#a-title {
+  text-decoration: none;
 }
